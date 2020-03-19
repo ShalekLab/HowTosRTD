@@ -1,0 +1,18 @@
+# Computational starter projects
+If you want to get your feet wet but don’t have your own data yet, there are a bunch of things that would be really informative to the lab for you to try out. Here are some ideas. You can do this on any data set you think is interesting, but doing it on one that the lab as a whole is familiar with - ex. Melanoma data, might be a good start.
+
+Each of these would be really useful to the lab if written up either in a word/latex document with figures or in a R/Jupyter notebook. They would also make really informative and interesting comp subgroup discussions.
+Comparing outputs of dimensionality reduction visualization methods:
+Although everyone prefaces their presentation of tSNE plots with a disclaimer along the lines of “this is just for visualization, we don’t draw conclusions from this plot”, I’m sure everyone would admit that they do use the tSNE as some sort of reference informing the direction of their downstream analysis. We use tSNE because it was the first nice method that was  easily accessible in common packages, but since then seurat and scanpy have added several additional methods - UMAP, force directed embeddings, diffusion maps. What does our data look like with these methods and do they point you toward any different directions?
+
+For example, a tSNE plot may have a few clusters of cells that look like they are sort of fading into each-other almost like a continuum of differentiation - when you run those same cells on a diffusion map, does it look like they form this continuum?
+
+How does the choice of variable genes and number of PCs change downstream analysis?
+Individuals in the lab can tell you based on experience what happens when you use too many variable genes or too many PCs (or too few) in your analysis - but it would be nice to have a write up of what analysis with poor selection of these cutoffs looks like. 
+
+See if you can reduce the number of PC’s or variable genes to the point where you lose the differences between some cell types, and see what happens when you run on way too many of these. Does the analysis just get slower and noisier or do you miss major differences between groups?
+
+Test different imputation methods on Seq-well with SSS
+
+SSS increases readout a lot, but does it make imputation less necessary? Compare a data set with both SSS and not SSS samples after running imputation methods like MAGIC, SAVER, scVI and see if you have any conclusions.
+

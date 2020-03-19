@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>8. Other dimensionality reduction &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Batch Correction" href="batch_correction.html" />
+    <link rel="prev" title="7. PCA" href="pca.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>8. Other dimensionality reduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/other_dimensionality_reduction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="other-dimensionality-reduction">
+<h1>8. Other dimensionality reduction<a class="headerlink" href="#other-dimensionality-reduction" title="Permalink to this headline">¶</a></h1>
+<p>Since PCA doesn’t seem to capture the full variability of single cell data in just two dimensions, people usually run additional dimensionality reduction methods on these principal components to allow for easier viewing of the data. The reason we want to look at the data is to visualize the distribution of gene expression over your data - you can color a dimensionality reduction plot based on expression of a gene. The goal of this plot would be for the clusters of cells we find via clustering in PC space (using more than the first two PC’s usually) to appear grouped in the dimensionality reduced space allowing us to quickly assess which clusters of cells are expressing which genes.</p>
+<p>Most dimensionality reduction is really just for visualization though, and as will be described below, should not be used to draw concrete conclusions about your data.</p>
+<p>This is a great review on matrix factorization in genomics https://doi.org/10.1016/j.tig.2018.07.003 - matrix factorization includes PCA, ICA, and NMF, and it is great to understand these things since they come up a lot as underlying parts of other methods!</p>
+<p>#tSNE</p>
+<p>This is one of the most common dimensionality reduction/visualization methods used in single cell data. It originated with <a class="reference external" href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf">this paper in 2008</a>,  and Dana Pe’er tried to <a class="reference external" href="https://patents.google.com/patent/US20180046755A1/en">patent</a> its use for single cell data recently (and <a class="reference external" href="https://twitter.com/mikelove/status/989987028879269890">people thought that was really funny</a>). People like to remind you that it is relatively meaningless and is just a nice way to look at the data in a number of dimensions that we can actually visualize (2-3), but they still use it a lot. The main thing to remember with tSNE is that it is a stochastic (so running it different times with different starting points will give you different outputs) method that prioritizes short-range distances. This means that if two cells are close together in tSNE space you can be pretty sure that they are similar, but if they are far apart, the distance between them does not tell you how dissimilar they are.</p>
+<p>There are a few parameters to adjust when running tSNE. I am not too familiar with these, but Jay and Carly have a lot of thoughts on them. CAUTION: These tunable hyper-parameters can have a big impact on the output of tSNE, and this is worth keeping in the back of your mind when doing a tSNE analysis. This is illustrated in <a class="reference external" href="https://distill.pub/2016/misread-tsne/">this</a> amazing interactive resource. I would highly recommend playing with it! Also, Jean Fan has a <a class="reference external" href="https://jef.works/blog/2018/04/10/interactive-tsne/">blog post</a> with similar interactive features.</p>
+<p>#UMAP</p>
+<p>UMAP is a dimensionality reduction method that is compared to tSNE. This <a class="reference external" href="https://doi.org/10.1101/298430">paper</a> notes that “notably highlighting faster runtime and consistency, meaningful organization of cell clusters and preservation of continuums in UMAP compared to t-SNE.”
+This is implemented in Seurat and scanpy.</p>
+<p>Recently, UMAP has become more popular.</p>
+<p>#Diffusion mapping</p>
+<p>Diffusion mapping provides a better view of the continuum of your data. Unlike tSNE, the long range distances can be taken as meaningful in a diffusion map.
+https://doi.org/10.1093/bioinformatics/btv325
+This is implemented in scanpy.</p>
+<p>#Force directed graph</p>
+<p>Given an underlying graph representation of the data (ex. kNN graph), a force directed graph visualization will look for an arrangement of the graph that shows an accurate representation of how similar cells are from each other based on their edge weights.
+https://github.com/AllonKleinLab/SPRING_dev
+https://kleintools.hms.harvard.edu/tools/spring.html</p>
+<p>#ICA- Independent component analysis</p>
+<p>The idea of ICA is to find dimensions in the data that are maximally independent. It is sort of similar to PCA in that it involves a SVD, but it is not as computationally optimized so is not as fast to run. There is a function in Seurat for this method, and this paper (10.1016/j.cell.2018.07.028) claims that it finds more identifiable biological signals on ICA components than PCA does.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="batch_correction.html" class="btn btn-neutral float-right" title="9. Batch Correction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pca.html" class="btn btn-neutral float-left" title="7. PCA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

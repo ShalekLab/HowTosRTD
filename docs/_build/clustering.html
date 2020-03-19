@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>11. Clustering &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="15. Differential Expression" href="differential_expression.html" />
+    <link rel="prev" title="10. Imputation" href="imputation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>11. Clustering</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/clustering.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="clustering">
+<h1>11. Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p>Since scRNA-seq is about defining the heterogeneity of cells, it is logical to try to group similar cells together into clusters. These clusters help make the noisy data more interpretable by combining cells that are similar and allowing us to compare the average gene expression of the clusters. The expected outcome of clustering varies a lot by the type of cells you have. In a atlas or tissue level study, you will expect many very distinguishable cell types that will probably be resolved similarly with different clustering methods, but if you have cells that you expect to be very similar - like if they were sorted by the same marker - you will expect the clusters to be obvious.</p>
+<p>Clustering in really high dimensional space is very difficult and there are many techniques for doing this. Many of those that are most successful involve grouping cells using kernel or neighborhood methods - if these terms don’t make sense, don’t worry, here are some references that will help.</p>
+<p>Here is a blog post on clustering comparison: https://jef.works/blog/2018/06/28/single-cell-clustering-comparison/</p>
+<p>Here is a paper comparing clustering: https://f1000research.com/articles/7-1141/v1</p>
+<p>Seurat’s clustering method: Seurat clusters using a combination of Nearest Neighbors clustering with a shrinking algorithm to prune the clustering tree. See the methods in <a class="reference external" href="https://www.nature.com/articles/nbt.4096">Butler et al.</a>, Nature Biotech (2018). When one clusters in Seurat using the FindClusters() call, there are a few sensitive parameters:</p>
+<ul class="simple">
+<li><p>pc.use - Choose the number of PCs to run clustering over. Important to only choose PCs that describe relevant variation in the data. Use Jackstraw/Variance explained and the actual genes defining PCs to pick the number of PCs to use.</p></li>
+<li><p>k.param - How big are the smallest neighborhoods? Increasing this forces clusters to be larger and can lead to poor clustering of small cell subsets. Inversely, decreasing this can cause too many non-distinct clusters to arise. 30 is a good place to start (default), but should be shrunk if your data set is small (less than ~500 cells).</p></li>
+<li><p>resolution - Where should the tree be cut to determine number of clusters. This is the most sensitive parameter, and the one that should be run iteratively. Based on the diversity of my data, I will choose for this to be higher (more diverse) or lower (less diverse). A good way to understand how well this parameter is set is to run differential expression on the clusters formed and see if the clusters separate strongly. If they don’t have clear gene separation then you are either too high (too many clusters, ie no real differences between sub clusters) or too low (too few clusters, ie diverse cells are being merged together). Sam: I like resolutions between 0.3-1 for most applications.</p></li>
+</ul>
+<p>There is quite a bit of debate on the distinction between ‘cell type’ and ‘cell state’. Often a well defined cell type could be seen as a major cluster in your data with some sub-clusters that may describe cell state.</p>
+<p>Jose: I like to view cell types as developmentally fixed lineages (e.g. epithelial, endothelial, stromal, T, B, myeloid, neural) which would not change types unless there is some malignant process severe enough to make them jump lineage (e.g. EMT in cancer). A subset would be something like a CD4 or CD8 T cell, which is also developmentally regulated, and unlikely to reverse course and come back as another one, a state is a set of modules acting within those constraints. State modules could be shared across types (e.g. cytotoxic CD4 and CD8 cells exist). Modules can sometimes contribute to clustering (why NK cells and CD8s often cluster together).</p>
+<p>In general, once you have clustered your cells, you should check that if and how clusters are defined by batch, patient, male/female etc, like you do for PCA or other dimensionality reduction. Even if clusters are defined by some metadata metric (batch inclusive) it doesn’t necessarily mean your data is bad or that analyses aren’t possible. Biological variation can overlap with technical variation, and oftentimes will dwarf that variation.</p>
+<p>Another thing to think about if you have many different cell types like in an atlas is to do some iterative clustering (as Carly has described) - Find the major clusters then further cluster these clusters. This is a good guide when you are looking for the same cell types across multiple individuals/animals and multiple time points.</p>
+<p>This paper (10.1016/j.cell.2018.05.057) takes you through a step-by-step of how they did their clustering.</p>
+</div>
+<div class="section" id="how-do-i-know-i-have-a-good-clustering">
+<h1>12. How do I know I have a good clustering?<a class="headerlink" href="#how-do-i-know-i-have-a-good-clustering" title="Permalink to this headline">¶</a></h1>
+<p>One way to be convinced by your clustering is if each cluster has distinct marker genes. If multiple clusters have the same marker genes, they might be the same type of cells (or they might not - also do differential expression between those individual clusters and see if you get interesting differences). Play with your tree-cutting or resolution of the clustering method being used.</p>
+<p>To get a statistical confidence on your clusters, one thing you can do is train a classifier between clusters (like a random forest) and test it on held out data then compare the cluster assignments of those held out data to their unsupervised clustering assignments. This is what they do in  https://doi.org/10.1016/j.cell.2018.06.021 .</p>
+</div>
+<div class="section" id="what-if-i-am-looking-for-rare-cell-subsets">
+<h1>13. What if I am looking for rare cell subsets?<a class="headerlink" href="#what-if-i-am-looking-for-rare-cell-subsets" title="Permalink to this headline">¶</a></h1>
+<p><strong>Iterative clustering</strong> - if your rare subset is likely to be found as a subset of some larger group (ex. A basal cell might be a subset of epithelial cells) and you have a large diversity of cell types, you can try subsetting your cells on this cluster that might contain the rare cells and re-clustering on just these cells. What is particularly important here is that before re-clustering you select variable genes and PCs again (as in re-run PCA on a new list of variable genes) on this cluster of cells. The variable genes and significant PCs on the whole dataset will likely be different that the ones that describe the heterogeneity of the cluster you are looking at, and if they were not sufficient to resolve your rare cell subsets in the first clustering, they probably won’t be enough in this clustering. This is because information contained PC that explains 1% of the variance in the whole data set might explain 10% of the variance in the subset.</p>
+<p>Some packages for this (I have never tested these)</p>
+<p>IterClust: https://bioconductor.org/packages/release/bioc/html/iterClust.html</p>
+<p>SciCast: https://github.com/iandriver/SCICAST</p>
+<p>One marker gene likely will not give you high confidence in the presence or absence of your rare subset. This is because of technical dropout as well as the fact that marker genes are usually known at a protein level which does not necessarily mean they are expected to be expressed at a high level.</p>
+<p>See the approach in RaceID from Van Oudenaarden &amp; Clevers: https://github.com/dgrun/StemID</p>
+<p>Also see approach FiRE: https://www.nature.com/articles/s41467-018-07234-6</p>
+<p>GiniClust: https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1010-4</p>
+</div>
+<div class="section" id="what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">
+<h1>14. What if some cells are clearly placed in the wrong clusters?<a class="headerlink" href="#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters" title="Permalink to this headline">¶</a></h1>
+<p><img alt="_images/slack_wrong_clusters.png" src="_images/slack_wrong_clusters.png" /></p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="differential_expression.html" class="btn btn-neutral float-right" title="15. Differential Expression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="imputation.html" class="btn btn-neutral float-left" title="10. Imputation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,324 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to for new Terra Users &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How do I use Terra Pipelines?" href="how_do_i_use_terra_pipelines.html" />
+    <link rel="prev" title="Welcome to the HowTos wiki!" href="home.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to for new Terra Users</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-terra">What is Terra:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-are-things-i-can-do-on-terra">What are things I can do on Terra?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basics-of-running-a-workflow">Basics of Running a Workflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sign-in">1. Sign In</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-new-workspace">2. Create a New Workspace.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#add-your-sequence-data-and-input-csv-file">3. Add Your Sequence Data and Input CSV File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import-a-workflow">4. Import a Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-and-launch-a-workflow">5. Configure and Launch a Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advice-for-troubleshooting">6. Advice for Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clean-up">7. Clean Up</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How to for new Terra Users</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/how_to_for_new_terra_users.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-for-new-terra-users">
+<h1>How to for new Terra Users<a class="headerlink" href="#how-to-for-new-terra-users" title="Permalink to this headline">¶</a></h1>
+<p>This page is very WIP at this stage in time! Please give me feedback regarding anything that is unclear/could be expanded on!</p>
+<div class="section" id="what-is-terra">
+<h2>What is Terra:<a class="headerlink" href="#what-is-terra" title="Permalink to this headline">¶</a></h2>
+<p>Terra is the Broad Institute’s bioinformatics/biomedical research cloud-computing platform that is built upon Google Cloud Platform. Unlike the Broad server on which we’ve run jobs in the past (and continue to until it ceases to exist), Terra has the advantage of leveraging Google’s powerful network of remote servers to more quickly complete computationally intensive tasks. This of course, bears the unfortunate disadvantage of costing us sweet, sweet grant money. That being said, the benefits of Terra mostly outweigh the benefits of using the Broad server.</p>
+</div>
+<div class="section" id="what-are-things-i-can-do-on-terra">
+<h2>What are things I can do on Terra?<a class="headerlink" href="#what-are-things-i-can-do-on-terra" title="Permalink to this headline">¶</a></h2>
+<p>In short, you can store your data on a Terra workspace bucket and either run Jupyter notebooks or workflows (WDL scripts) to process/analyze your data. I’m not covering Jupyter notebooks in this guide because I don’t have enough experience running them on Terra.</p>
+<p>For workflows, here are some common workflows we use in the lab:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://portal.firecloud.org/#methods/cumulus/dropseq_workflow/">dropseq_workflow</a> for aligning Seq-Well data. If you have BCL directories which you wish to convert to fastq.gz for alignment you can also do this in dropseq_workflow by setting run_bcl2fastq=<code class="docutils literal notranslate"><span class="pre">true</span></code> Know that your tab-delimited sample sheet (.tsv) will instead need to be a single column containing gsURLs to the root of each BCL directory.</p></li>
+<li><p>You can also run a <a class="reference external" href="https://portal.firecloud.org/#methods/cumulus/bcl2fastq/">bcl2fastq</a> workflow independently of dropseq_workflow but I recommend using dropseq_workflow with run_bcl2fastq=<code class="docutils literal notranslate"><span class="pre">true</span></code>, especially if you have more than one BCL directory.</p></li>
+<li><p><a class="reference external" href="https://portal.firecloud.org/#methods/cumulus/cellranger_workflow/">cellranger_workflow</a> for aligning 10x data.</p></li>
+<li><p>cumulus for quickly clustering and visualizing 10x or Seq-Well data.</p></li>
+<li><p><a class="reference external" href="https://portal.firecloud.org/#methods/cumulus/smartseq2/">smartseq2</a> workflow for aligning Smart-Seq2 sequence data.</p></li>
+<li><p>Searching for ‘cumulus’ in the Broad methods repository will show several tools of interest located in the Cumulus namespace.</p></li>
+</ul>
+<p>If you don’t see what you like follow <a class="reference external" href="how_to_for_new_terra_users.html#4-import-a-workflow">the instructions below</a> and search for a workflow you might have in mind. If you don’t find it you can create your own workflow (not covering how to do that right now so contact me).</p>
+</div>
+<div class="section" id="basics-of-running-a-workflow">
+<h2>Basics of Running a Workflow<a class="headerlink" href="#basics-of-running-a-workflow" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sign-in">
+<h3>1. Sign In<a class="headerlink" href="#sign-in" title="Permalink to this headline">¶</a></h3>
+<p>Visit the <a class="reference external" href="https://app.terra.bio/">Terra by the Broad Institute</a> and sign in using your preferred Google email account and complete the user profile registration steps if it is your first time using Terra.<img alt="sign_in" src="_images/sign_in.png" /></p>
+</div>
+<div class="section" id="create-a-new-workspace">
+<h3>2. Create a New Workspace.<a class="headerlink" href="#create-a-new-workspace" title="Permalink to this headline">¶</a></h3>
+<p>Before we start, I should say that in the lab we’re aiming to have a one project-one workspace policy. If you’re intending to publish a paper, use one bucket to store and process all data for that paper. Things get ridiculously cluttered when everyone is in one workspace and it becomes very hard to clean up after yourself and that racks up some $$$$.</p>
+<p>After logging in/registration you will be brought to the “Your Workspaces” page, where you will see the “Create a New Workspace button. Click it and fill out the fields to your liking. <img alt="_images/create_study.png" src="_images/create_study.png" /></p>
+<p>You should use our shalek-lab-firecloud billing acount, or if you’re just playing around, you can take advantage of Google’s free $300 credit offer.</p>
+</div>
+<div class="section" id="add-your-sequence-data-and-input-csv-file">
+<h3>3. Add Your Sequence Data and Input CSV File<a class="headerlink" href="#add-your-sequence-data-and-input-csv-file" title="Permalink to this headline">¶</a></h3>
+<p>There are three methods of uploading files to your workspace Google Bucket. Before proceeding, find your workspace bucket by visiting your workspace’s “Dashboard” tab. In the bottom-right corner of the dashboard, you will see your Google Bucket ID which you can copy by clicking the adjacent clipboard button. You can visit the bucket interface by clicking the “Open in Browser” hyperlink.</p>
+<p>First upload your sequence data files using one of the methods below.</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gsutil</span></code> <strong>HIGHLY RECOMMENDED</strong>: Through your computer’s console, install the <code class="docutils literal notranslate"><span class="pre">gsutil</span></code> tool by following the <a class="reference external" href="https://cloud.google.com/storage/docs/gsutil_install">installation guide</a>. An example command that would transfer files from your computer to the workspace bucket would be:<br /><code class="docutils literal notranslate"><span class="pre">gsutil</span> <span class="pre">-m</span> <span class="pre">cp</span> <span class="pre">local/path/to/file.fastq.gz</span> <span class="pre">gs://[Bucket</span> <span class="pre">ID]/destination/directory/</span></code><br />For an entire folder of sequence data, copy it recursively through using the command as such:<br /><code class="docutils literal notranslate"><span class="pre">gsutil</span> <span class="pre">-m</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">local/path/to/folder</span> <span class="pre">gs://[Bucket</span> <span class="pre">ID]/destination/directory</span></code>.</p></li>
+<li><p>You can also manually upload data to the Google Bucket, but note that this process take much more time than <code class="docutils literal notranslate"><span class="pre">gsutil</span></code>. At the bottom right of your workspace’s “Dashboard” tab, click the “Open in Browser” hyperlink to visit your bucket. Click either the “Upload File” or “Upload Folder” button to navigate to and upload your files or a folder containing your files respectively. <img alt="_images/bucket.png" src="_images/bucket.png" /></p></li>
+<li><p>Alternatively to <code class="docutils literal notranslate"><span class="pre">gsutil</span></code> and Google Bucket file uploading, users can manually upload data one file at a time through the Terra interface. This method is painfully slow so you should strongly consider using <code class="docutils literal notranslate"><span class="pre">gsutil</span></code>. Go to the “Data” tab and click the plus button towards the bottom-right of the page. Navigate to and select your file and hit open. Repeat the process for however many files. <img alt="_images/add_file.png" src="_images/add_file.png" /></p></li>
+</ol>
+<p>Before uploading an input CSV file for something like dropseq_workflow, it is recommended that you make certain that it adheres to the criteria specified in its documentation. To verify that the paths you listed in the file are correct, navigate to your bucket using the instructions listed above and locate your sequence data files. Click on each file to view its URI (gsURL), which should resemble the format <code class="docutils literal notranslate"><span class="pre">gs://&lt;bucket</span> <span class="pre">ID&gt;/path/to/file.fastq.gz</span></code> That whole string is what you will need to paste into your file. When finished, upload your input CSV file to the bucket.</p>
+</div>
+<div class="section" id="import-a-workflow">
+<h3>4. Import a Workflow<a class="headerlink" href="#import-a-workflow" title="Permalink to this headline">¶</a></h3>
+<p>This section may be subject to change in the recent future as Terra is still undergoing development and soon Firecloud Methods will be integrated to Terra rather than remain in the legacy application.</p>
+<p>To import workflows for running jobs in your workspace, click the “Workflow” tab and click the “Find a Workflow” button. On the window that pops up, click the “Broad Method Repository” hyperlink to be brought to FireCloud Methods. <img alt="_images/find_workflow.png" src="_images/find_workflow.png" />.</p>
+<p>In the search bar, enter the name of the tool you want (ex: “dropseq_scCloud_workflow”), hit search, and click on the workflow hyperlink when it appears. <img alt="_images/search_workflows.png" src="_images/search_workflows.png" />.</p>
+<p>Towards the top-right of the workflow page, click “Export to Workspace…” button and then click the “Use Blank Configuration” button. I don’t recommend giving the tool a custon name, that can get confusing for others working in your bucket. Select your workspace as the destination workspace via the bottom-most dropdown menu. Click the “Export to Workspace” button and when it offers you to visit the edit page, click “Yes”. <img alt="_images/export.png" src="_images/export.png" /></p>
+</div>
+<div class="section" id="configure-and-launch-a-workflow">
+<h3>5. Configure and Launch a Workflow<a class="headerlink" href="#configure-and-launch-a-workflow" title="Permalink to this headline">¶</a></h3>
+<p>You should be on the edit page of the tool now, this page is where you set variables for the workflow. To access this page of the tool in the future, you can go to the Workflow tab of your Terra Workspace and click on the workflow button.</p>
+<p>Depending on the tool you may want “Process single workflow from files” or “Process multiple workflows from _____”. It depends how the script works so check the author’s documentation which can be found in the SCRIPT tab or via the tool’s wiki (generally on readthedocs.org). If it is the latter option, you will need to find out how to upload data to the Data Tab of your workspace (I will get around to writing this part up in the future).</p>
+<p>Scroll down to fill out required inputs. Note that Strings must be surrounded by quotation marks and typing <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code> (don’t surround with quotation marks) for Booleans are case-sensitive. <img alt="_images/inputs.png" src="_images/inputs.png" /></p>
+<p>To set values for optional parameters, click the “Show optional inputs” text above the “Task name” column and scroll down. These are variables that have default values if the boxes are left empty, so there is no need to fill each out unless it suits your needs. To better understand the inputs, read the tool documentation.</p>
+<p>When satisfied with your inputs, save them using the button in the upper-right and and then hit the “RUN ANALYSIS” button to the left. You will be brought to the job history page where your job has been logged. Here you will eventually know if the job ran successfully. It probably won’t.</p>
+<p><strong>While your workflow is running:</strong> During the run, you can check on your workflow under the ‘Job History’ tab in your workspace. From there you can click on your workflow that is running, then click ‘View’ to see the progress. This will let you see any steps in the workflow that are completed, but be aware that the ‘timing diagram’ tab does not update until each subprocess is done running so don’t be confused if you don’t see the process it says it is running under that tab.</p>
+</div>
+<div class="section" id="advice-for-troubleshooting">
+<h3>6. Advice for Troubleshooting<a class="headerlink" href="#advice-for-troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>If the job fails it is recommended you navigate to and read the log file of the task that failed.<br />To do this, click the failed job in “Job History” tab and click “View” on the next page. Then on the workflow status page under the “List View” tab, click the hyperlink of the failed task and repeat if there are failed subtasks. On the failed subtask that has no children, click on the backend log file button and skim to gain a better understanding. <img alt="_images/log.png" src="_images/log.png" /></p>
+<p>Evaluate the error based on the message and decide whether you need to alter variables, move files in your bucket, or change and reupload your input CSV file if you used one. You can also ~~give up~~ ask for help on the Slack #computational channel!</p>
+<p>Note that some pipelines (like the dropseq pipeline for instance) will resume from where they failed if intermediate files were created and the output directory you specify as input is the same as the previous run.</p>
+</div>
+<div class="section" id="clean-up">
+<h3>7. Clean Up<a class="headerlink" href="#clean-up" title="Permalink to this headline">¶</a></h3>
+<p>After running a job in your bucket you will see a directory (bucket object) appear with a randomly generated name. This is a Cromwell execution directory, which contains workflow files including the task log files that are useful for reviewing how your job performed. Once in a while it’s good to delete these execution directories because they take up space, and space isn’t cheap. If you’re interested in keeping the log files, they barely take up space so you can copy them out and rename them something more descriptive using <code class="docutils literal notranslate"><span class="pre">gsutil</span> <span class="pre">-m</span> <span class="pre">mv</span> <span class="pre">gs://bucketID/path/to/logfile.log</span> <span class="pre">gs://bucketID/job/newfilename.log</span></code>. For giving new names try something like <code class="docutils literal notranslate"><span class="pre">YYMMDD_JobID_taskname.log</span></code>. It’s equally important to transfer out processed data and other outputs to your local machine or another Google Bucket. To do this, also use the <code class="docutils literal notranslate"><span class="pre">gsutil</span> <span class="pre">-m</span> <span class="pre">mv</span></code> command.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how_do_i_use_terra_pipelines.html" class="btn btn-neutral float-right" title="How do I use Terra Pipelines?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="home.html" class="btn btn-neutral float-left" title="Welcome to the HowTos wiki!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

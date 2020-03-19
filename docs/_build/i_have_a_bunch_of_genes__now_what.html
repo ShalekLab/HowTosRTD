@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>18. I have a bunch of genes now what? &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="19. Meta analysis" href="meta_analysis.html" />
+    <link rel="prev" title="17. Network Inference" href="network_inference.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">18. I have a bunch of genes  now what?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#databases-of-gene-lists-and-cell-types">18.1. Databases of gene lists and cell types:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>18. I have a bunch of genes  now what?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/i_have_a_bunch_of_genes__now_what.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="i-have-a-bunch-of-genes-now-what">
+<h1>18. I have a bunch of genes  now what?<a class="headerlink" href="#i-have-a-bunch-of-genes-now-what" title="Permalink to this headline">¶</a></h1>
+<p>Once you get a list of genes from differential expression, you probably want to do two things:</p>
+<ul class="simple">
+<li><p>Figure out what cell types you have in your dataset</p></li>
+<li><p>Figure out what those cell types are doing - do they look like other cells of that cell type?</p></li>
+</ul>
+<p>This review compares a few methods for automated cluster assignment: https://f1000research.com/articles/8-296/v1</p>
+<p>And these describe methods that are useful if you have a training set (as in some dataset of cells with scRNA-seq gene expression data that are already labeled with cell types and you think your data may be similar to) - <a class="reference external" href="https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbz096/5593804">Zhao et al Briefings in Bioinformatics 2019</a> and <a class="reference external" href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-019-1795-z">Abdelaal et al Genome Biology 2019</a>. There was a subgroup presentation on automatic cell type labeling which can be found on these <a class="reference external" href="https://docs.google.com/presentation/d/1luYSOhmiXHJFbpr265jJr5agOgR4x2GHO3TBBisCdjw/edit?usp=sharing">Google slides</a> and in the Dropbox.</p>
+<p>Gene set enrichment analysis (GSEA) is one option. Check out http://software.broadinstitute.org/gsea/msigdb/annotate.jsp for a non-ranked version of GSEA - that is a good first pass.</p>
+<p>Another thing Alex asks for a lot is IPA - this is a paid software with a proprietary algorithm (so Carly says this is not a good thing to use since we don’t know exactly how it works). Qiagen puts out some training materials online that can be helpful in learning IPA. If you want to use it, the Broad has a license which you can get by looking at this: https://broad.service-now.com/sp?id=kb_article&amp;sys_id=c8fa6e1a13a7e640df1955912244b0d9 .</p>
+<p>A major difference between GSEA and IPA is that the lists in GSEA were generated experimentally (but may not be from the exact cell type you care about) and the IPA lists are curated.</p>
+<p>Mostly, the way I handle giant gene lists is to google your genes one by one. They (older grad students) say you will eventually start remembering the names of genes, but that hasn’t really happened for me yet. Try googling the gene name with the cell type or the disease/condition you are studying to come up with its relevance in the situation you are interested in - a lot of times, websites like Gene Cards are really vague or a gene doesn’t have a well-described function but has been linked to some disease.</p>
+<p>Also Jose, Carly, and Sam K (and others!) can usually just look at a list of genes and tell you exactly what is going on.</p>
+<p>Alex will ask you to “score” genes based on existing gene lists - to find these gene lists you can search around on msigDB or in the literature, but your best bet again is to just ask on slack. People know a lot of stuff!</p>
+<p>R tool for GO (gene ontology) annotation - https://bioconductor.org/packages/release/bioc/html/piano.html</p>
+<div class="section" id="databases-of-gene-lists-and-cell-types">
+<h2>18.1. Databases of gene lists and cell types:<a class="headerlink" href="#databases-of-gene-lists-and-cell-types" title="Permalink to this headline">¶</a></h2>
+<p>http://mousebrain.org/ can be treated as a ‘cell type wiki’</p>
+<p>https://panglaodb.se/ has extensive scRNA-seq data searchable by celltype and other metadata. You can see what genes other people saw as highly expressed in cell types you think you might have in your data.</p>
+<p>https://singlecell.broadinstitute.org/single_cell Single Cell Portal has a ‘gene search’ function, so if you have some marker genes, you could search those genes on there and see which cell types have those genes</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="meta_analysis.html" class="btn btn-neutral float-right" title="19. Meta analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="network_inference.html" class="btn btn-neutral float-left" title="17. Network Inference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

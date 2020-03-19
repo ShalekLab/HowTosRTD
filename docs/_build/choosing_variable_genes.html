@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>6. Choosing variable genes &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. PCA" href="pca.html" />
+    <link rel="prev" title="5. Normalization" href="normalization.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Choosing variable genes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-variable-genes-is-an-iterative-process">6.1. Choosing variable genes is an iterative process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#if-removing-genes-makes-it-harder-to-find-some-heterogeneity-why-remove-any-at-all">6.2. If removing genes makes it harder to find some heterogeneity, why remove any at all?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#but-it-looks-like-seurat-is-filtering-on-dispersion-not-variance">6.3. But it looks like Seurat is filtering on dispersion, not variance?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-does-seurat-include-a-threshold-for-max-mean-and-max-dispersion">6.4. Why does Seurat include a threshold for max mean and max dispersion?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>6. Choosing variable genes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/choosing_variable_genes.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="choosing-variable-genes">
+<h1>6. Choosing variable genes<a class="headerlink" href="#choosing-variable-genes" title="Permalink to this headline">¶</a></h1>
+<p>If the goal of your analysis is to find ways that groups of cells differ, you only care about genes that are not the same in every cell.</p>
+<div class="section" id="choosing-variable-genes-is-an-iterative-process">
+<h2>6.1. Choosing variable genes is an iterative process<a class="headerlink" href="#choosing-variable-genes-is-an-iterative-process" title="Permalink to this headline">¶</a></h2>
+<p>A really important part of the process of choosing variable genes (and the rest of the steps in this document) is that it is an iterative process. Your goal is to find biology in your data, so you will start by looking at the big axes of variation - sometimes cell type or treatment group - then you will look more carefully at other forms of variation. This means that as you ask different questions and consider different subsets of cells you will look at different sets of variable genes. As an example, a gene that is not expressed in T Cells but is expressed highly in epithelial cells may be highly variable (ranging from 0 in some cells to high expression in others) and of much interest at the first step of your analysis - when you are trying to separate T cells from epithelial cells. When you are trying to figure out which T Cell subsets you have in your data, this same gene (which is not expressed at all in T cells) will not be informative to your analysis at all. The genes that are most informative to the variance in this subset of cells could also be genes that were not included in the analysis targeted at clustering cell types. This is because you are likely thresholding on some arbitrary value when choosing which genes to include in that analysis, and these genes that vary within one cluster may have variance less than your cutoff.</p>
+</div>
+<div class="section" id="if-removing-genes-makes-it-harder-to-find-some-heterogeneity-why-remove-any-at-all">
+<h2>6.2. If removing genes makes it harder to find some heterogeneity, why remove any at all?<a class="headerlink" href="#if-removing-genes-makes-it-harder-to-find-some-heterogeneity-why-remove-any-at-all" title="Permalink to this headline">¶</a></h2>
+<p>Because this data is so noisy, it is always hard at every step of analysis to differentiate biological signal from noise. If you think about this in the extreme cases - if only one cell is expressing a gene, what information is that gene telling you about that cell in relation to the other cells? Not much except that it might be different from all of the other cells (which is information we could not use in our analysis because one cell is never going to give us enough information to draw biological conclusions) OR that this one gene was randomly detected in that one cell through some error. What if all the cells were expressing a gene at about the same level and one cell was expressing it higher or lower? Would you be convinced of any biological conclusions based on that one cell? Probably not. Still, if you don’t remove these genes, they will be included in your dimensionality reduction and downstream analysis. In effect, your downstream analysis will be trying to take into account the variance described by these non-convincing genes, unless you tell it that you are not convinced by genes that change so subtley by removing them from the analysis. In general I relate to discomfort in setting thresholds (because why can’t we just make everything nice and bayesian?), but this seems to be currently the state of the art and works well in practice. (maybe if someone figured out how to do inference efficiently in zero inflated negative binomial models more effectively we wouldn’t need to rely on cutoffs!)</p>
+</div>
+<div class="section" id="but-it-looks-like-seurat-is-filtering-on-dispersion-not-variance">
+<h2>6.3. But it looks like Seurat is filtering on dispersion, not variance?<a class="headerlink" href="#but-it-looks-like-seurat-is-filtering-on-dispersion-not-variance" title="Permalink to this headline">¶</a></h2>
+<p>In most single cell pipelines, genes are filtered on <a class="reference external" href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/Index_of_dispersion&amp;sa=D&amp;ust=1539979813150000">dispersion</a>. When you ask Seurat to filter variable genes, it will show you a plot of dispersion vs mean. The dispersion is the variance divided by the mean. The reason this is used here is that genes with a higher mean expression will likely have a higher variance and vise versa. By scaling the variance by the mean, you avoid filtering out just the lowly expressed genes.</p>
+<p>One interesting thing to notice here is that single cell RNA-seq data is overdispersed, meaning the dispersion is greater than 1. This has a lot of important modeling implications for this data. Specifically, a convenient distribution for count data, the Poission distribution, assumes that the mean == variance, so the dispersion is 1. This unfortunately makes this distribution a poor fit for modeling this data. In its place people use the negative binomial distribution which does a better job of modeling overdispersed counts.</p>
+</div>
+<div class="section" id="why-does-seurat-include-a-threshold-for-max-mean-and-max-dispersion">
+<h2>6.4. Why does Seurat include a threshold for max mean and max dispersion?<a class="headerlink" href="#why-does-seurat-include-a-threshold-for-max-mean-and-max-dispersion" title="Permalink to this headline">¶</a></h2>
+<p>Idk man, I just use these to remove clear outliers. I’m sure there is a good explanation somewhere for this…</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pca.html" class="btn btn-neutral float-right" title="7. PCA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="normalization.html" class="btn btn-neutral float-left" title="5. Normalization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

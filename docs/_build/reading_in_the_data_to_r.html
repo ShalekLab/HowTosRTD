@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Reading in the data (to R) &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Dropout?" href="dropout.html" />
+    <link rel="prev" title="Workflow" href="kallisto_bustools_on_terra.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>1. Reading in the data (to R)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/reading_in_the_data_to_r.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reading-in-the-data-to-r">
+<h1>1. Reading in the data (to R)<a class="headerlink" href="#reading-in-the-data-to-r" title="Permalink to this headline">¶</a></h1>
+<p>But here is one little bit on specific code syntax to get you started.</p>
+<p>In R choose a function depending on the type of file you have:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="n">path_to_genes_file.txt</span><span class="p">)</span> <span class="c1">#for .txt files</span>
+<span class="n">metadata</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="n">path_to_metadata_file.csv</span><span class="p">)</span> <span class="c1">#for .csv files</span>
+</pre></div>
+</div>
+<p>Look at the documentation for these functions by typing <code class="docutils literal notranslate"><span class="pre">?read.table</span></code> or <code class="docutils literal notranslate"><span class="pre">?read.csv</span></code> into the console. Specifically note parameters that tell R if it should expect a header (basically column names) or an index column (with row names).</p>
+<p>Check that you got your row names as expected by typing <code class="docutils literal notranslate"><span class="pre">rownames(dataframe)</span></code> where you replace <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> with the name of the dataframe where you stored your file contents. You can do the same thing with the function <code class="docutils literal notranslate"><span class="pre">colnames</span></code>. You can check the size of your data by typing <code class="docutils literal notranslate"><span class="pre">length(dataframe)</span></code> or by looking at the object’s attributes in the box in the top right corner of RStudio.</p>
+<p>Often you will get errors using R objects as inputs to functions that are of a different type than the function expects. To determine the data type the function expects, type <code class="docutils literal notranslate"><span class="pre">?function_name</span></code> where you replace <code class="docutils literal notranslate"><span class="pre">function_name</span></code> with the name of your function and look at the arguments it expects, this will usually describe the data type. To check the type of your data object, use the function <code class="docutils literal notranslate"><span class="pre">typeof(your_data)</span></code>. Then if these do not agree, you can google how to correctly convert between the two data types in R.</p>
+<p>Another thing you might need to do is check that the orders of rows or columns in two matrices are the same. For example, you might have a metadata matrix and a cells x genes matrix and you might want to make sure the cells included in the metadata matrix are in the same order as the cells in the expression matrix. To do this, you will subset the dataframe - in R (and python), the process of subsetting a dataframe also changes the order of the axis (rows or columns) on which you are subsetting. The way you subset is with square brackets []. If you have two dataframes - one called ‘genes’ which has rows that are gene names and columns which are cell names, and another called ‘metadata’ which has rows that are cell names and columns that are metadata headers (ex. %transcriptome alignment, etc), you might want to make sure that the cells in the metadata are all contained in the genes matrix. The way you would do that is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metadata</span> <span class="o">&lt;-</span> <span class="n">metadata</span><span class="p">[</span><span class="n">colnames</span><span class="p">(</span><span class="n">genes</span><span class="p">),</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>This command takes all the rows in the metadata and orders them based on the order of the columns in the genes matrix.</p>
+<p>If you wanted to do the opposite and order the genes dataframe based on the metadata cell order:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">genes</span> <span class="o">&lt;-</span>  <span class="n">genes</span><span class="p">[</span> <span class="p">,</span> <span class="n">rownames</span><span class="p">(</span><span class="n">metadata</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>A few things to be cautious of here are:</p>
+<p>If you subset your dataframe with a name that does not exist as a label for that axis of the dataframe (ex. If a cell is not in the genes dataframe but is in the metadata dataframe and you run the genes dataframe subsetting command above) you will get an error indicating that a value is not found BUT if you are doing the opposite - subsetting the genes dataframe on cells in the metadata dataframe where the genes dataframe contains cells that are not in the metadata dataframe, the subsetting will work, but you will lose all the cells in the genes dataframe that are not included in rownames(metadata). If this is the case (and you can usually tell by checking that the number of rows in the metadata and number of columns in the genes are not equal), you will be overwriting the genes dataframe with a new genes dataframe with fewer cells. If you want to keep these cells somewhere else, it is good practice to name the subset genes matrix something else (so type <code class="docutils literal notranslate"><span class="pre">genes_subset</span> <span class="pre">&lt;-</span> <span class="pre">genes[</span> <span class="pre">,</span> <span class="pre">rownames(metadata)]</span></code>)</p>
+<p>Now you have some matrices! Time to get analyzing! This is the end of the coding syntax help in this guide - but some concepts to keep in mind here is that most of what you will be doing in single cell analysis is subsetting matrices (or dataframes) and applying transformations to these dataframes. If you are having a problem it is often because you are subsetting incorrectly or you have some invalid value (NaN or infinity) in your matrix that the transformation does not like.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dropout.html" class="btn btn-neutral float-right" title="2. Dropout?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="kallisto_bustools_on_terra.html" class="btn btn-neutral float-left" title="Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

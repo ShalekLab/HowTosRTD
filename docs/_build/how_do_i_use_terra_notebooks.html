@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How do I use Terra Notebooks? &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Drop Seq Tools on Terra" href="drop_seq_tools_on_terra.html" />
+    <link rel="prev" title="How do I use Terra Pipelines?" href="how_do_i_use_terra_pipelines.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How do I use Terra Notebooks?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#do-i-even-need-to-use-terra-notebooks">Do I even need to use Terra Notebooks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-terra-compute-environment">What is a Terra compute environment?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-basic-seurat-v3-environment">Creating a basic Seurat v3 environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#moving-data">Moving Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-extra-packages">Installing Extra Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-extra-packages-with-root-permissions">Installing Extra Packages with root permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How do I use Terra Notebooks?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/how_do_i_use_terra_notebooks.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-do-i-use-terra-notebooks">
+<h1>How do I use Terra Notebooks?<a class="headerlink" href="#how-do-i-use-terra-notebooks" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="do-i-even-need-to-use-terra-notebooks">
+<h2>Do I even need to use Terra Notebooks?<a class="headerlink" href="#do-i-even-need-to-use-terra-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>If you are able to run analyses on your laptop, it is probably easier to do that then use the Terra Notebooks. The main reason to use these notebooks, is that you can use more RAM and CPUs that you can on your laptop.</p>
+<p>If your laptop has &gt; 8GB RAM an &gt;= 4 core CPU and &gt; 100GB storage, you can probably work with datasets up to 20-30 thousand cells. Otherwise, you may need to create a Terra compute environment.</p>
+</div>
+<div class="section" id="what-is-a-terra-compute-environment">
+<h2>What is a Terra compute environment?<a class="headerlink" href="#what-is-a-terra-compute-environment" title="Permalink to this headline">¶</a></h2>
+<p><strong>Simplified, a Terra compute environment makes a computer in the cloud with user specified amounts of RAM, CPUs, and Storage.</strong></p>
+<p>Note that this environment is separate to the “workspace bucket” where you see files in the terra data tab</p>
+<p>More technically, a compute environment creates two things: a google “persistent disk” that stores your data and installed packages and a google “compute node” that has working memory and runs the Jupyter server. The reason for this separation is that you can start and stop the cluster (play/pause buttons) and that will only affect the compute node. Your running code will be stopped, but all of your installed packages and copied files will stay safe on the persistent disk.</p>
+<p>Jupyter Notebooks run in the Terra compute environment are semi-integrated to your workspace, and intended for downstream analysis using Python or R. Jupyter itself acts like it would on your desktop, so see <a class="reference external" href="https://jupyter.readthedocs.io/en/latest/">Jupyter’s help docs</a> for more info on using its interface.</p>
+<p>When you want to start fresh, you can delete the cluster (trashcan button) which will kill both the persistent disk and the compute node (deleting any installed packages, and saved files in the compute environment)</p>
+<p>Each user gets to create 1 notebook cluster per billing project they have access to. (In our case that is 1 cluster per person).</p>
+</div>
+<div class="section" id="creating-a-basic-seurat-v3-environment">
+<h2>Creating a basic Seurat v3 environment<a class="headerlink" href="#creating-a-basic-seurat-v3-environment" title="Permalink to this headline">¶</a></h2>
+<p>To get started with single-cell analysis, click on the cog button in the upper right corner of your workspace</p>
+<ol class="simple">
+<li><p>select “custom environment” in the Environment field</p></li>
+<li><p>paste <code class="docutils literal notranslate"><span class="pre">shaleklab/terra-seurat-env:release-v1.0</span></code> into the “container image” field. This custom environment already has Seurat v3 installed</p></li>
+<li><p>Choose how much RAM, CPUs, or Storage you need. To start just select “(Default) moderate compute power”</p></li>
+<li><p>click create button</p></li>
+</ol>
+<p><strong>Note: Updating any of these values will require a complete teardown and recreation of the environment. Make sure to backup any required files saved in the compute environment to the workspace bucket before doing so.</strong></p>
+</div>
+<div class="section" id="moving-data">
+<h2>Moving Data<a class="headerlink" href="#moving-data" title="Permalink to this headline">¶</a></h2>
+<p>The notebook’s persistent disk currently is not directly connected to you workspace bucket, but it is setup to allow faster transfer of files to your bucket than you would see from your laptop.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gsutil</span></code> is installed and configured to allow copying and syncing of files between the compute environment and workspace bucket. The easiest way to access <code class="docutils literal notranslate"><span class="pre">gsutil</span></code> is from the Jupyter notebook’s system commands. If you are in a Python kernel prefix bash commands with <code class="docutils literal notranslate"><span class="pre">!</span></code> e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">!gsutil</span> <span class="pre">-m</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">&lt;WORKSPACE_BUCKET&gt;/&lt;your_folder&gt;</span> <span class="pre">~/local/path/in/compute/environment</span></code></p>
+<p>Or in an R kernel using the <code class="docutils literal notranslate"><span class="pre">system()</span></code> function e.g.</p>
+<p><code class="docutils literal notranslate"><span class="pre">system(&quot;gsutil</span> <span class="pre">-m</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">&lt;WORKSPACE_BUCKET&gt;/&lt;your_folder&gt;</span> <span class="pre">~/local/path/in/compute/environment&quot;,</span> <span class="pre">intern=TRUE)</span></code></p>
+<p>the <code class="docutils literal notranslate"><span class="pre">intern=TRUE</span></code> argument allows Jupyter to show the output in the notebook.</p>
+<p>Find your workspace bucket hash “name of the bucket”, in the right bar of the dashboard tab.</p>
+<p><code class="docutils literal notranslate"><span class="pre">gsutil</span></code> also has an <a class="reference external" href="https://cloud.google.com/storage/docs/gsutil/commands/rsync"><code class="docutils literal notranslate"><span class="pre">rsync</span></code> command</a> which is useful for syncing your analysis folder to your workspace bucket.</p>
+</div>
+<div class="section" id="installing-extra-packages">
+<h2>Installing Extra Packages<a class="headerlink" href="#installing-extra-packages" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> and <code class="docutils literal notranslate"><span class="pre">devtools</span></code> are installed by default and work pretty well. From within any notebook you can install extra packages</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Python3
+!pip install scanpy
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># R</span>
+<span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="s2">&quot;package&quot;</span><span class="p">)</span>
+<span class="n">devtools</span><span class="p">::</span><span class="n">install_github</span><span class="p">(</span><span class="s2">&quot;user@repository&quot;</span><span class="p">)</span>
+<span class="n">biocManager</span><span class="p">::</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;bioPackage&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is an example setup notebook on how to install packages in the <a class="reference external" href="https://app.terra.bio/#workspaces/shalek-lab-firecloud/ShalekLab-Library/notebooks/launch/AnalysisSetup.ipynb/?read-only=true">ShalekLab-Library</a>. You probably don’t need to install all packages in the notebook.</p>
+<p>Please copy the notebook to your workspace before editing, so that others still have access to resource! Thanks! (each cell contains the dependencies for the last package installed in the cell)</p>
+</div>
+<div class="section" id="installing-extra-packages-with-root-permissions">
+<h2>Installing Extra Packages with root permissions<a class="headerlink" href="#installing-extra-packages-with-root-permissions" title="Permalink to this headline">¶</a></h2>
+<p>You do not have sudo permissions in the notebooks, so you will need to install to user directory. If for some reason you absolutely need sudo permissions, there is the option to edit the DockerFile and create a new custom docker image to start from</p>
+<p>See:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/databiosphere/terra-docker#terra-base-images">Terra’s instructions on creating custom docker images</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ShalekLab/terra-seurat-env">Example custom image by BenD</a></p></li>
+<li><p><a class="reference external" href="https://hub.docker.com/repository/docker/shaleklab/terra-seurat-env">Example Docker hub configuration for custom image</a></p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="drop_seq_tools_on_terra.html" class="btn btn-neutral float-right" title="Drop Seq Tools on Terra" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how_do_i_use_terra_pipelines.html" class="btn btn-neutral float-left" title="How do I use Terra Pipelines?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

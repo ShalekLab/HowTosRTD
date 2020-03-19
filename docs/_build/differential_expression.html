@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>15. Differential Expression &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="16. Cell Ordering (“Pseudotime”)" href="cell_ordering_pseudotime.html" />
+    <link rel="prev" title="11. Clustering" href="clustering.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">15. Differential Expression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#some-guiding-principles">15.1. Some guiding principles:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#spillover-genes">15.2. Spillover genes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>15. Differential Expression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/differential_expression.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="differential-expression">
+<h1>15. Differential Expression<a class="headerlink" href="#differential-expression" title="Permalink to this headline">¶</a></h1>
+<p>Once you have some clusters, you probably want to know what cells types these clusters represent! The way this is traditionally done is via differential expression analysis. The concept of comparing each gene independently between two conditions is common in microarray and bulk RNA-seq approaches, but we need some different modeling assumptions due to the technical noise of single cell RNA-seq as well as the larger number of ‘samples’ (cells) in the groups you are comparing.</p>
+<div class="section" id="some-guiding-principles">
+<h2>15.1. Some guiding principles:<a class="headerlink" href="#some-guiding-principles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Don’t trust a single gene:</strong> Genes move in groups. It is very unlikely that one gene is acting alone, so if you see one gene that you know is a marker for T cells amongst a bunch of markers for epithelial cells, don’t assume it is a T cell cluster. Gene annotations are incomplete (so you could be seeing another function of this gene that has not been described), or there are technical reasons that seemingly random genes appear as marker genes for your clusters.</p></li>
+<li><p><strong>Always consider effect size:</strong> When you have a lot of samples, a very small difference in magnitude can result in a tiny p-value. One of the most striking examples of this was a study that compared the IQs of older and younger siblings. They found that there was a highly significant difference in IQ between older and younger siblings in a large study, but the magnitude of this effect was less than an IQ point. If you have a lot of cells, you will have a lot of statistically significant differences - but the magnitude of these differences could be on the order of a portion of a UMI - so do we really care? Several people in the lab use Cohen’s d to calculate effect size effect size, which calculates the number of standard deviations between the mean of each of two groups. Cohen’s d, where effect size d = (Mean1-Mean2)/(SD pooled)</p></li>
+<li><p><strong>Clusters with the same ‘marker genes’ may or may not be the same cell type:</strong> When you run the first-pass differential expression, you will usually be comparing each cluster to all other clusters in the data. Often, several genes will come up as differentially expressed for multiple clusters. This could be because these cells were ‘over clustered’ - split into too many clusters, or it could be because the cells are of similar types and the differences between the clusters with similar markers were of smaller magnitude than the differences between these clusters and the other clusters. To check this, run differential expression between just these clusters and consider the differentially expressed genes between these clusters too. (see note on spillover genes below though)</p></li>
+</ul>
+<p>In general, people talk about the biggest issue in differential expression in single cell RNA-seq as the ‘zero-inflation’. Because of this, it is often modeled with zero-inflated distributions such as zero inflated negative binomial or zero inflated poisson. Some attempts have been made to include normalizing and library quality assumptions in the constructions of these models (including cell or gene specific scaling factors, etc). A comparative analysis of these techniques has been done recently: <a class="reference external" href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-019-2599-6">Wang et al, 2019, BMC Bioinformatics</a>. They say that there are large differences between the differential genes found in each method they test and that there is a trade off between false positives and missing true positives. They also say that methods built for single cell RNA-seq are not much better than those built for bulk data.</p>
+<p>The Satija lab website has a nice vignette on differential expression methods available in Seurat:  https://satijalab.org/seurat/de_vignette.html</p>
+<p>The method in scanpy for differential expression is called ‘rankGeneGroups’ https://scanpy.readthedocs.io/en/latest/api/scanpy.api.tl.rank_genes_groups.html#scanpy.api.tl.rank_genes_groups and has some different methods from seurat. Notably, scanpy does not return a p-value of any sort for differential expression testing, it just gives a ‘score’ which is interpreted based on the method you use and is not well documented. Another important note about this method is that the default is to report genes that are both significantly up and significantly down in each cluster. You must change an input parameter to require that only one direction is returned. This can make gene set enrichment of markers confusing if you forget to check the direction of the change.</p>
+<p><a class="reference external" href="http://hms-dbmi.github.io/scde/">SCDE</a> -Another scRNA-seq R package from the Karchenko lab which contains a bayesian approach to differential expression. Carly says it biases toward 0 vs one, not both on with magnitude differences - use likelihood ratio test or DESeq2 for magnitude differences.</p>
+<p>Paper on bias, robustness, and scalability of differential expression: http://dx.doi.org/10.1101/143289</p>
+<p>Pops data: DESeq2 and EdgeR are the most commonly used differential expression methods
+This tutorial: https://rpubs.com/ge600/deseq2 gives a good description of how to deal with differential expression when you have lots of conditions and want to do delta of deltas.</p>
+</div>
+<div class="section" id="spillover-genes">
+<h2>15.2. Spillover genes<a class="headerlink" href="#spillover-genes" title="Permalink to this headline">¶</a></h2>
+<p>Spillover genes are a specific kind of batch effect that we have a pretty good idea of the source of which actually helps with finding them! These genes come from cells that lyse before membrane sealing or from free RNA floating in the system. This means that basically all cell types in a sample will have expression for these genes. This becomes a problem when you are comparing between batches. For example, in Jose’s nasal polyp study, some marker genes for secretory cells were found distributed throughout the non-polyp samples but not in the polyp samples:
+<img alt="_images/spillover_example.png" src="_images/spillover_example.png" /></p>
+<p>(pink is non polyp, blue is polyp, the top right cluster are non polyp cells high in this gene, but most other clusters dominated by non-polyp cells appear to have expression of these genes as well)
+So when running differential expression between clusters that contain different proportions of polyp or non-polyp cells, these and other spillover genes come up as highly differentially expressed although they are not markers for that cell type. This can be misleading and frustrating for identifying cell types and understanding batch effects. Some observations about what these genes look like in the data are helpful for checking if they should be ignored from differential expression.
+A spillover gene is highly expressed in most clusters of one batch or group but not in another.
+A spillover gene often is correlated with marker genes of one cluster but not of the other clusters
+For example, given the following clustering of the data:
+<img alt="_images/spillover_clustering.png" src="_images/spillover_clustering.png" /></p>
+<p>We may want to see which genes are differentially expressed between clusters 1 and 5. Cluster 5 is mostly non-polyp cells while cluster 1 is mostly polyp cells. One of the genes that comes up as highly differentially expressed between these clusters is STATH. Because Jose knew this gene did not make sense, he was able to ignore it in figuring out his cell types, but if that is not as clear to you it is helpful to check if it is a spillover gene. If we look at the correlation of STATH with the genes found to be marker genes for cluster 5 when compared to all other clusters (as in not just cluster 1), we see that the correlation is low (apologies for the unlabeled axes, these were generated ages ago when I was really bad at plotting, the y axis of both plots is pearson correlation) The first plot shows the correlation of STATH to the top 5 marker genes of cluster 5 in cluster 5 cells, and the second plot shows the correlation of STATH to the top marker genes of the other clusters dominated by non-polyp cells in those clusters:</p>
+<p><img alt="_images/spillover_marker_corrs.png" src="_images/spillover_marker_corrs.png" /></p>
+<p>Since genes move in modules, a gene that is expressed outside of a module (as in not correlated with other genes of interest) in a given group of cells is most likely noise.</p>
+<p>This method of investigating these genes has not been fleshed out or turned into any type of statistically principled approach - it is just a series of observations, but hopefully awareness of what these genes look like is useful for looking at seemingly strange information in your data.</p>
+<p>When you realise something is a spillover gene, don’t remove it from the whole dataset as it could be descriptive for a specific cell type. What might make sense in this situation is for this gene to be removed from analysis of clusters where it is not correlated with the other marker genes - like cluster 5 - if analysis were to be done on this cluster independent of the secretory cell cluster where STATH is a marker.</p>
+<p>MAGIC claims to handle these spillover genes- but haven’t tested
+SoupX is another method that has been described and Conner and Travis have been testing/using this method https://doi.org/10.1101/303727</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cell_ordering_pseudotime.html" class="btn btn-neutral float-right" title="16. Cell Ordering (“Pseudotime”)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clustering.html" class="btn btn-neutral float-left" title="11. Clustering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Useful Shalek lab links
+KCO galaxy server- http://kcoserver.broadinstitute.org:8088/
+
+Reimbursements - https://atlas.mit.edu/atlas/Main.action?tab=home -> under the ‘home’ tab click ‘my reimbursements' . If reimbursements are for food for a meeting, include the names and affiliations of each person who attended. You cannot reimburse tax, but you can reimburse tip. MIT's tax exempt form is in the dropbox. You should send these to Magdalah Wesh.
+
+Travel reimbursements - concur.mit.edu 
+
+Shalek lab github - https://github.com/shaleklab 
+
+Filing service/facilities requests - go on Atlas (atlas.mit.edu)  --> Service request

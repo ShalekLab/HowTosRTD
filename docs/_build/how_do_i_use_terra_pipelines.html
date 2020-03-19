@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How do I use Terra Pipelines? &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="How do I use Terra Notebooks?" href="how_do_i_use_terra_notebooks.html" />
+    <link rel="prev" title="How to for new Terra Users" href="how_to_for_new_terra_users.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How do I use Terra Pipelines?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-model">Data Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>How do I use Terra Pipelines?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/how_do_i_use_terra_pipelines.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-do-i-use-terra-pipelines">
+<h1>How do I use Terra Pipelines?<a class="headerlink" href="#how-do-i-use-terra-pipelines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>Data processing tasks (demultiplexing, alignment, other tasks that don’t require intense interaction) are performed by using the workflows in the tools tab of your workspace. These workflows are written in <a class="reference external" href="https://software.broadinstitute.org/wdl/">WDL</a>.</p>
+<p>The tools tab in a new workspace is empty because you will need to import the tools you want. See the <a class="reference external" href="https://app.terra.bio/#workspaces/shalek-lab-firecloud/ShalekLab-Library/tools">ShalekLab-Library workspace</a> tools tab for some standard workflows the lab uses. Press on the vertical ellipsis button on the workflow to copy it to your workspace.</p>
+<p>If you can’t find the workflow you need in the the ShalekLab-Library, you can also import external workflows. From the tools tab in your workspace press the <em>Find a Tool</em> button. You will be given the option to import from <a class="reference external" href="https://dockstore.org/">Dockstore</a> or the <a class="reference external" href="https://portal.firecloud.org/#methods">Broad Methods Repository</a>. The Broad methods repository is more established, but Terra is moving toward encouraging  use of Dockstore. In either case they have a search bar to search by name of workflow. Once you find the Workflow you would like to use. Press the <strong>export to workspace</strong> or <strong>add to terra</strong> button on the right side of the page. From the Broad Methods Repository, a pop up will appear asking if you want to use a configuration file. Most methods don’t have configurations (default input json file), so press the <strong>use blank configuration</strong> button.</p>
+<p>Once your tool is imported you should see a new tile in the Tools tab of your workspace. Pressing the tools title opens up the tool’s configuration page. There are 4 buttons main sections to this page:</p>
+<ol class="simple">
+<li><p>Script, This is how you can look at the actual workflow and see what the input defaults are. If you have questions about what the workflow is doing, this is a good first place to look</p></li>
+<li><p>Inputs, This is where you can enter input arguments to the workflow.</p></li>
+<li><p>Outputs, this is not always used but is where you can see where the outputs of the workflow are stored in the Data Model (tables setion in the left bar of the Data tab).</p></li>
+<li><p>Run Analysis, the submit button</p></li>
+</ol>
+</div>
+<div class="section" id="data-model">
+<h2>Data Model<a class="headerlink" href="#data-model" title="Permalink to this headline">¶</a></h2>
+<p>The data model is mainly used for running batch jobs. e.g. running the same workflow $n$ times with different inputs. The data model is a <code class="docutils literal notranslate"><span class="pre">.tsv</span></code> file where each row is a sample and each column is the arguments for this sample for this workflow.</p>
+<p>The column names are the first row and one of the columns (usually “sample_id”) must have set as the entity so that Tarra can keep track of the samples accross the data model. Set the entity by naming the column <code class="docutils literal notranslate"><span class="pre">entity:sample_id</span></code>.</p>
+<p>This data model can be very useful because links to the outputs of the workflow can be written back to the file, making it easier to keep track of your important files.</p>
+<p>When running a batch job in terra, to set the inputs to the columns of your sample file use <code class="docutils literal notranslate"><span class="pre">this.column_name</span></code></p>
+</div>
+<div class="section" id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>It is common for the workflow to not work the first time you try to use it. This is usually because you have not completely figured out what to enter as the inputs. This happens to all of us. All the time. It is really frustrating, but there are some things to try.</p>
+<ol>
+<li><p>look at the script section of the tool. there is a <code class="docutils literal notranslate"><span class="pre">workflow</span> <span class="pre">&lt;name&gt;</span> <span class="pre">{…}</span></code> section in there and the first part of it is just listing all the arguments, their data types, and there default values if it is an optional argument. Developers will also sometimes put hints next to the argument to help figure out what to enter.</p></li>
+<li><p>Make sure all your file names are <code class="docutils literal notranslate"><span class="pre">gs://</span></code> urls and enclosed by <code class="docutils literal notranslate"><span class="pre">&quot;</span></code> marks.</p></li>
+<li><p>Check the error logs. In the Job History tab you will be able to check the status of your submission, clicking the <strong>view</strong> link will take you to the task status page and in the top right tile are some buttons to link to the stdout, stderr files and the execution directory. If you don’t see anything in the files, also check the execution directory. Some workflows output to non-standard log files.</p>
+<p>Look for common issues:</p>
+<ol class="simple">
+<li><p>“file does not exist” are your input file names correct?</p></li>
+<li><p>“Out of memory” see if you can adjust to more memory via inputs</p></li>
+<li><p>“Out of disk space” see if you can adjust to more memory via inputs</p></li>
+<li><p>A lot of workflows use preemptibles, these are cheaper cloud computers that google can shut down before they complete. check for an <code class="docutils literal notranslate"><span class="pre">attempt2</span></code> folder in the execution directory. Usually these errors can be solved by resubmitting with no changes. You can also see if you can increase a “preemptible” argument (number of attempts before failing).</p></li>
+</ol>
+</li>
+<li><p>If someone else is able to successfully use the tool, see how their inputs are configured.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how_do_i_use_terra_notebooks.html" class="btn btn-neutral float-right" title="How do I use Terra Notebooks?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="how_to_for_new_terra_users.html" class="btn btn-neutral float-left" title="How to for new Terra Users" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workflow &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Reading in the data (to R)" href="reading_in_the_data_to_r.html" />
+    <link rel="prev" title="SeqWell Demultiplexing on Terra" href="seqwell_demultiplexing_on_terra.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#about">About</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-run-kallisto-bustools-on-the-cloud">Why run Kallisto-Bustools on the cloud?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-sample-sheet">Writing your sample sheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-the-workflow">Configuring the workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inputs-outputs">Inputs / Outputs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Workflow</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/kallisto_bustools_on_terra.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workflow">
+<h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h1>
+<p>If you have already run Kallisto and are here to see the Terra notebook which does not yet exist, scroll down to the section near the bottom of the page.</p>
+<div class="section" id="about">
+<h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
+<p>This workflow wraps the <a class="reference external" href="https://www.kallistobus.tools/introduction">kb-python</a> wrapper for Kallisto and Bustools.</p>
+<p>The kallisto-bustools workflow can be found <a class="reference external" href="https://portal.firecloud.org/#methods/alexandria_dev/kallisto-bustools/">here</a>. This main workflow calls two subworkflows which can be run individually: <a class="reference external" href="https://portal.firecloud.org/#methods/alexandria_dev/kallisto-bustools_reference/">kallisto-bustools_reference</a> and <a class="reference external" href="https://portal.firecloud.org/#methods/alexandria_dev/kallisto-bustools_count/">kallisto-bustools_count</a>.</p>
+</div>
+<div class="section" id="why-run-kallisto-bustools-on-the-cloud">
+<h2>Why run Kallisto-Bustools on the cloud?<a class="headerlink" href="#why-run-kallisto-bustools-on-the-cloud" title="Permalink to this headline">¶</a></h2>
+<p>The nice thing about Kallisto-Bustools is that you can get expression matrices super quickly when running locally on your laptop. If you already have the tools installed locally, know they work, and do not need to process many samples at once you’d be fine <a class="reference internal" href="not_found.html"><span class="doc">sticking locally</span></a>.</p>
+<p>This workflow provides a few benefits over the local version:</p>
+<ul class="simple">
+<li><p>The tools are already wrapped, no need for installation or command line usage.</p></li>
+<li><p>Assurance that any individual can run it regardless of their machine specs, which is particularly important for generating files for RNA velocity using lamanno=<code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></li>
+<li><p>The ability to parallelize as many samples as you want.</p></li>
+<li><p>Providing another tool for the Alexandria suite.</p></li>
+</ul>
+</div>
+<div class="section" id="writing-your-sample-sheet">
+<h2>Writing your sample sheet<a class="headerlink" href="#writing-your-sample-sheet" title="Permalink to this headline">¶</a></h2>
+<p>This sample sheet is a tab-delimited text file with a header row. Here is an example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sample</span>	<span class="n">R1_Path</span>	<span class="n">R2_Path</span>
+<span class="n">CGP</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">CGP_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">CGP_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">DMSO</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">DMSO_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">DMSO_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">LGD</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">LGD_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">LGD_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+<span class="n">LKS_CGP</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">LKS_CGP_R1</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>	<span class="n">gs</span><span class="p">:</span><span class="o">//</span><span class="n">fc</span><span class="o">-</span><span class="n">secure</span><span class="o">-</span><span class="mi">06</span><span class="n">a1d647</span><span class="o">-</span><span class="mi">0</span><span class="n">ffd</span><span class="o">-</span><span class="mi">410</span><span class="n">c</span><span class="o">-</span><span class="n">af2e</span><span class="o">-</span><span class="mi">8</span><span class="n">a38acfede12</span><span class="o">/</span><span class="n">IRA_FASTQs</span><span class="o">/</span><span class="n">LKS_CGP_R2</span><span class="o">.</span><span class="n">fastq</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+<p>You must have the columns <code class="docutils literal notranslate"><span class="pre">Sample</span></code>, <code class="docutils literal notranslate"><span class="pre">R1_Path</span></code>, and <code class="docutils literal notranslate"><span class="pre">R2_Path</span></code>. If your samples do not use paired-end FASTQ’s, contact James.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sample</span></code> can be any string, but <code class="docutils literal notranslate"><span class="pre">R1_Path</span></code> and <code class="docutils literal notranslate"><span class="pre">R2_Path</span></code> must be the gsURI leading to the respective FASTQ on the Google bucket.</p>
+<p>After the reference is built, each row of this file will be scattered, or parallelized, as a shard of kallisto-bustools_count.</p>
+</div>
+<div class="section" id="configuring-the-workflow">
+<h2>Configuring the workflow<a class="headerlink" href="#configuring-the-workflow" title="Permalink to this headline">¶</a></h2>
+<p>Due to the strange command line options for kb-python, the configurations of this workflow are not straightforward. Know for this workflow there are two tasks: <code class="docutils literal notranslate"><span class="pre">build_reference</span></code> and <code class="docutils literal notranslate"><span class="pre">count</span></code>.</p>
+<ol class="simple">
+<li><p>Export the <a class="reference external" href="https://portal.firecloud.org/#methods/alexandria_dev/kallisto-bustools/">workflow</a> to your Terra workspace.</p></li>
+<li><p>Upload your FASTQ’s, write and upload your sample sheet, then input your sample sheet for <code class="docutils literal notranslate"><span class="pre">sample_sheet</span></code>.</p></li>
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">bucket</span></code> as the gsURI to your Google bucket: <code class="docutils literal notranslate"><span class="pre">gs://your-bucket-id/</span></code>. Set output_path as the path from the root of your bucket you wish to send your output files to, ex: <code class="docutils literal notranslate"><span class="pre">20200124_YourSampleSet/kb/</span></code>.</p></li>
+<li><p>If you want files that are suited for RNA Velocity, set <code class="docutils literal notranslate"><span class="pre">lamanno</span></code>=<code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p></li>
+<li><p>If you do not have a reference, you must download or build one. Set <code class="docutils literal notranslate"><span class="pre">run_build_reference</span></code>=<code class="docutils literal notranslate"><span class="pre">true</span></code>, otherwise <code class="docutils literal notranslate"><span class="pre">false</span></code> and skip to step 4.</p></li>
+<li><p>Decide whether you want to build your own reference index or download a pre-existing one. I believe the downloadable ones are <em>NOT</em> suited for RNA Velocity so if you set <code class="docutils literal notranslate"><span class="pre">lamanno</span></code>=<code class="docutils literal notranslate"><span class="pre">true</span></code>, tough cookies you’ll have to build one: obtain a GTF and a genomic FASTA and input each respectively for <code class="docutils literal notranslate"><span class="pre">reference_gtf</span></code> and <code class="docutils literal notranslate"><span class="pre">genomic_fasta</span></code>. For downloading, simply set <code class="docutils literal notranslate"><span class="pre">download_index</span></code> equal to one of the following: <code class="docutils literal notranslate"><span class="pre">human</span></code>, <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, or <code class="docutils literal notranslate"><span class="pre">linnarsson</span></code>.</p></li>
+<li><p>If you already had your reference built and set <code class="docutils literal notranslate"><span class="pre">run_build_reference</span></code>=<code class="docutils literal notranslate"><span class="pre">false</span></code>, you will have to set the following:</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">preexisting_cDNA_transcripts_to_capture</span></code> = <code class="docutils literal notranslate"><span class="pre">gs://bucket/path/to/cDNA_transcripts_to_capture.txt</span></code><br /><code class="docutils literal notranslate"><span class="pre">preexisting_index</span></code> = <code class="docutils literal notranslate"><span class="pre">gs://bucket/path/to/index.idx</span></code><br /><code class="docutils literal notranslate"><span class="pre">preexisting_intron_transcripts_to_capture</span></code> = <code class="docutils literal notranslate"><span class="pre">gs://bucket/path/to/intron_transcripts_to_capture.txt</span></code><br /><code class="docutils literal notranslate"><span class="pre">preexisting_T2G_mapping</span></code> = <code class="docutils literal notranslate"><span class="pre">gs://bucket/path/to/transcripts_to_genes.txt</span></code></p>
+<ol class="simple">
+<li><p>(Continued) Regardless of whether you set <code class="docutils literal notranslate"><span class="pre">run_build_reference</span></code> as <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code>, set <code class="docutils literal notranslate"><span class="pre">technology</span></code> as the technology you used to process the samples. Use <code class="docutils literal notranslate"><span class="pre">DROPSEQ</span></code> for Seq-Well and your whitelist will be autogenerated. If your technology comes with a whitelist of barcodes, set it through <code class="docutils literal notranslate"><span class="pre">barcode_whitelist</span></code>. Here’s the full table:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span>         <span class="n">whitelist</span> <span class="n">provided</span>    <span class="n">barcode</span> <span class="p">(</span><span class="n">file</span> <span class="c1">#, start, stop)        umi (file #, start, stop)    read file #    </span>
+<span class="o">---------</span>    <span class="o">------------------</span>    <span class="o">---------------------------------</span>    <span class="o">-------------------------</span>    <span class="o">-----------</span>    
+<span class="mi">10</span><span class="n">XV1</span>        <span class="n">yes</span>                   <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                            <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>                    <span class="mi">0</span>              
+<span class="mi">10</span><span class="n">XV2</span>        <span class="n">yes</span>                   <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>                  <span class="mi">1</span>              
+<span class="mi">10</span><span class="n">XV3</span>        <span class="n">yes</span>                   <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>                  <span class="mi">1</span>              
+<span class="n">CELSEQ</span>                             <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>                            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>                   <span class="mi">1</span>              
+<span class="n">CELSEQ2</span>                            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>                    <span class="mi">1</span>              
+<span class="n">DROPSEQ</span>                            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>                  <span class="mi">1</span>              
+<span class="n">INDROPSV1</span>                          <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">38</span><span class="p">)</span>               <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>                  <span class="mi">1</span>              
+<span class="n">INDROPSV2</span>                          <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">38</span><span class="p">)</span>               <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>                  <span class="mi">0</span>              
+<span class="n">INDROPSV3</span>    <span class="n">yes</span>                   <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>                  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>                   <span class="mi">2</span>              
+<span class="n">SCRUBSEQ</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>                            <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>                   <span class="mi">1</span>              
+<span class="n">SURECELL</span>                           <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">27</span><span class="p">)</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">59</span><span class="p">)</span>                  <span class="mi">1</span> 
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>If you want your matrices outputted in loom or h5ad format, set either <code class="docutils literal notranslate"><span class="pre">loom</span></code> or <code class="docutils literal notranslate"><span class="pre">h5ad</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> for the one you desire. I don’t want to imagine what happens if you set both to <code class="docutils literal notranslate"><span class="pre">true</span></code>…</p></li>
+<li><p>Configure any other optional parameters as you desire. Increasing the <code class="docutils literal notranslate"><span class="pre">number_cpu_threads</span></code> might be worth it if your GCP zone has a machine with more than 32 cores. Let James know what gets you speedy results.</p></li>
+<li><p>Up top, set the workflow to “Process single workflow from files” and then hit “Run Analysis”. Monitor your job! If it crashes and for the life of you you can’t figure out what’s gone wrong, contact James.</p></li>
+</ol>
+</div>
+<div class="section" id="inputs-outputs">
+<h2>Inputs / Outputs<a class="headerlink" href="#inputs-outputs" title="Permalink to this headline">¶</a></h2>
+<p>TODO: Tables for all inputs and outputs.</p>
+<p>I can only write so much in one go</p>
+</div>
+</div>
+<div class="section" id="notebook">
+<h1>Notebook<a class="headerlink" href="#notebook" title="Permalink to this headline">¶</a></h1>
+<p>Here’s where someone will write about the lovely notebook they’ve made on Terra.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reading_in_the_data_to_r.html" class="btn btn-neutral float-right" title="1. Reading in the data (to R)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="seqwell_demultiplexing_on_terra.html" class="btn btn-neutral float-left" title="SeqWell Demultiplexing on Terra" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

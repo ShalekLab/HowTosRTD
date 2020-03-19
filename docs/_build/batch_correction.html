@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>9. Batch Correction &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Imputation" href="imputation.html" />
+    <link rel="prev" title="8. Other dimensionality reduction" href="other_dimensionality_reduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. Batch Correction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#which-should-i-use">9.1. Which should I use?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cell_ordering_pseudotime.html">16. Cell Ordering (“Pseudotime”)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>9. Batch Correction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/batch_correction.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="batch-correction">
+<h1>9. Batch Correction<a class="headerlink" href="#batch-correction" title="Permalink to this headline">¶</a></h1>
+<p>What if you have data from multiple batches? It could be different arrays, different patients, or even different sequencing technologies. Unfortunately, these data sometimes separate based on batch in dimensionality reduced space. The first thing you should think about here is - do you really think these differences are not biological? If you are convinced that they are not and you need to consider all of the cells together then batch correction is for you.</p>
+<p>The simplest approach to this is to just regress out the sources of variation - for instance if you think that your differences are driven by number of UMI per cell, you could regress that out. Same goes for mitochondrial genes, as is described in the Seurat tutorial. Seurat and scanpy both have functions called ‘regress_out’ which do this.</p>
+<p>Some batch correction methods are as follows:</p>
+<p><strong>CCA in Seurat</strong> - Canonical Correlation Analysis - this requires that you expect most of the types of cells in your data sets to exist in all data sets. <em>The following is written about an old version of CCA, so I am not sure if it is still valid</em> They call this ‘alignment’ https://satijalab.org/seurat/Seurat_AlignmentTutorial.html
+Side note: the ‘FindConservedMarkers’ function associated with this batch correction is really sketchy. It simply does a p-value comparison between the marker genes in the groups you are comparing (using a package whose own documentation discorages users from doing p-value comparisons when effect sizes are available, which they are here). Not only does it do a p-value comparison, but it reports the ‘consensus p-value’ as the minimum p-value among the groups in the comparisons. In theory, this is a legitimate p-value comparison method described in meta-analysis literature, but I have a problem with this for several reasons. One is that if (and this happened to me) you are comparing two groups of cells that are simply different and you shouldn’t be doing batch correction on in the first place, you will be get from this method a list of genes that are ‘conserved’ in their differences but could be totally different in their significance or effect size. This meant in this bad analysis that a gene with p-value ~ 1 in one batch and p-value ~ .05 in the other batch was considered highly conserved between the two batches. While some of the onus is on the user to not be doing batch correction on data that is so dissimilar that the differences are biological and not batch specific, this degree of confidence in a wrong solution is concerning, and several of the methods listed below this simply returned no conserved markers when ran on this data set. The other problem I have with this approach is that it seems that is marketed as an approach that uses a mathematically reasonable batch correction technique (CCA) to transform the data then looks for markers in this transformed data. This is not what is going on, it is simply doing a meta-analysis of the two batches.
+These issues with this approach are not kept secret at all by the authors, they are clearly spelled out in the methods of the paper, but it is important to look carefully at these results as this method might not be doing what you would expect!</p>
+<p><strong>Seurat v3</strong> has a new version of batch correction described <a class="reference external" href="https://satijalab.org/seurat/v3.0/immune_alignment.html">here</a>. It is supposed to be much better than CCA and allows &gt;2 datasets with or without many overlapping cells.</p>
+<p><strong>MNN from the Marioni lab</strong> - Mutual Nearest Neighbors https://www.nature.com/articles/nbt.4091 This is implemented in scanpy as the mnn_correct method</p>
+<p><strong>scVI</strong> from the Yosef lab does a form of batch correction using bayesian deep generative models as is described in this blog post http://www.nxn.se/valent/2018/4/20/count-based-autoencoders-and-the-future-for-scrna-seq-analysis. Sarah has tried this method out and thinks it is really great. It also allows you to sample from the posterior of the expression values allowing you to place a measure of uncertainty on any downstream analysis. https://niryosef.wordpress.com/tools/tools-scvi/</p>
+<p><strong>Scanorama</strong> is a method that stitches together single cell datasets using methods similar to those used for stitching panoramas - http://cb.csail.mit.edu/cb/scanorama/. This method is easily run on scanpy anndata objects and can also be called from R as described in the README on the github. It is very easy to install using pip. This method is similar to the Seurat V3 batch correction method and was conceived at the same time.</p>
+<p><strong>Scmap</strong> projects data between experiments - http://bioconductor.org/packages/release/bioc/html/scmap.html</p>
+<p><strong>scMerge</strong> https://github.com/SydneyBioX/scMerge is another integration method that is implemented in R</p>
+<p><strong>BBKNN</strong> - claims to be the fastest around and is implemented in scanpy
+https://www.biorxiv.org/content/biorxiv/early/2018/08/21/397042.full.pdf?%3Fcollection=</p>
+<p><strong>SAUCIE</strong> - on a skim, this looks sketchy, but have not read it carefully or tried it https://www.biorxiv.org/content/biorxiv/early/2018/08/27/237065.1.full.pdf?%3Fcollection=</p>
+<div class="section" id="which-should-i-use">
+<h2>9.1. Which should I use?<a class="headerlink" href="#which-should-i-use" title="Permalink to this headline">¶</a></h2>
+<p>Sarah did a comp subgroup on this called - Comp_subgroup_journal_club_5.22.18.pptx. It’s in the Talks &amp; Posters/Journal Club dropbox folder. This contains tests for MNN, CCA, and scVI.</p>
+<p>Shalek thinks the underlying principles behind CCA are more principled for single cell- the idea that correlation structure is conserved between batches makes more sense than looking at overlapping nearest neighbors. Since he said that, CCA has sort of fallen out of favor, so we should probably ask him again what he thinks we should use.</p>
+<p>A review on how to assess batch correction methods - https://doi.org/10.1101/200345</p>
+<p>Another method is to develop your own GLM (generalized linear model) for differential expression that blocks for batch.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="imputation.html" class="btn btn-neutral float-right" title="10. Imputation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="other_dimensionality_reduction.html" class="btn btn-neutral float-left" title="8. Other dimensionality reduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

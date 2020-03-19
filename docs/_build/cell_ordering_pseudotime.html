@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>16. Cell Ordering (“Pseudotime”) &mdash; Shalek Lab HowTos  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="17. Network Inference" href="network_inference.html" />
+    <link rel="prev" title="15. Differential Expression" href="differential_expression.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F9F9F9" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Introduction</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="home.html">Welcome to the HowTos wiki!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Terra</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how_to_for_new_terra_users.html">How to for new Terra Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_pipelines.html">How do I use Terra Pipelines?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_do_i_use_terra_notebooks.html">How do I use Terra Notebooks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html">Drop Seq Tools on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#output-files">Output files:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drop_seq_tools_on_terra.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seqwell_demultiplexing_on_terra.html">SeqWell Demultiplexing on Terra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html">Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kallisto_bustools_on_terra.html#notebook">Notebook</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Data Analysis</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="reading_in_the_data_to_r.html">1. Reading in the data (to R)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dropout.html">2. Dropout?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filtering.html">3. Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doublets.html">4. Doublets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="normalization.html">5. Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="choosing_variable_genes.html">6. Choosing variable genes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">7. PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_dimensionality_reduction.html">8. Other dimensionality reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="batch_correction.html">9. Batch Correction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imputation.html">10. Imputation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#how-do-i-know-i-have-a-good-clustering">12. How do I know I have a good clustering?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-i-am-looking-for-rare-cell-subsets">13. What if I am looking for rare cell subsets?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clustering.html#what-if-some-cells-are-clearly-placed-in-the-wrong-clusters">14. What if some cells are clearly placed in the wrong clusters?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differential_expression.html">15. Differential Expression</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">16. Cell Ordering (“Pseudotime”)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#once-i-have-a-trajectory-what-do-i-do">16.1. Once I have a trajectory what do I do?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="network_inference.html">17. Network Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="i_have_a_bunch_of_genes__now_what.html">18. I have a bunch of genes  now what?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="meta_analysis.html">19. Meta analysis</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Shalek Lab HowTos</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>16. Cell Ordering (“Pseudotime”)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cell_ordering_pseudotime.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cell-ordering-pseudotime">
+<h1>16. Cell Ordering (“Pseudotime”)<a class="headerlink" href="#cell-ordering-pseudotime" title="Permalink to this headline">¶</a></h1>
+<p>As you do clustering and differential expression you might notice that it is hard to split your cells into clusters. As you have probably heard, cells exist on a continuum of states and heterogeneity is not discrete. This is particularly relevant in the realm of differentiation, which is where the annoying name ‘pseudotime’ comes from. Pseudotime can also be used for cells responding to a stimulation over time, but most of the algorithms/packages were made with differentiation, not response, in mind so using pseudotime resources and interpreting results with these datasets can be more challenging. The idea here is that we can look at cell’s location in differentiation space by modeling gene expression space as a continuous state. This assumption means that we are observing cells at many points between the discrete states we consider ‘cell types’ and that these continuum can tell us about the process of differentiation.
+A very elaborate and in depth review describes this wayy better- https://doi.org/10.1101/276907.</p>
+<p>Another way to improve pseudotime is using velocity - <a class="reference internal" href="not_found.html"><span class="doc">this guide</span></a> describes one way to calculate RNA velocity.</p>
+<p>Pseudotime methods can have the following outputs (not an exhaustive list):</p>
+<ul class="simple">
+<li><p>A pretty picture of cells in a continuous space (“look! My stem cells are earlier in pseudotime than my differentiated cells!”) on which you can visualize clusters or other metadata.</p></li>
+<li><p>A description of branching processes in the data - though the interpretation is not always clear from this, it could just be a branch that the method draws because the cells are in really discrete states that are not really continuous</p></li>
+<li><p>Genes that change with pseudotime - this can be interesting if genes change slowly along a continuum or go up then down during the continuum so would not be seen in differential expression analysis of discrete cell types. (This is found most easily with functionality included in Monocle since it is already written in the library. Otherwise you can see which genes are correlated with the pseudotime value assigned to the cells or the genes differentially expressed between the branches)</p></li>
+</ul>
+<p>Inputs often required by pseudotime methods:</p>
+<ul class="simple">
+<li><p>A root cell or cluster for which you think the pseudotime originates</p></li>
+<li><p>The number of branches you expect</p></li>
+<li><p>The genes you wish to run pseudotime on - this is actually a blessing in disguise because you can use these pseudotime methods to investigate other continuous processes that are not necessarily differentiation by running it on genes you think define those processes.</p></li>
+</ul>
+<p>New pseudotime approaches are described almost weekly because it is a really nice computational problem that is fun to think about. There is maybe some discussion about what the ‘best’ pseudotime method is, but as with all things it probably depends on your data. What is really important to consider is what question a pseudotime trajectory can really answer for you. Some people made a package that helps you compare lots of pseudotime methods - <a class="reference external" href="https://github.com/dynverse/dyno">dyno</a> . Also this <a class="reference external" href="https://github.com/agitter/single-cell-pseudotime">github repo</a> lists existing pseudotime methods.</p>
+<p>And here is a paper on what pseudotime methods can tell us and what they cannot - www.pnas.org/cgi/doi/10.1073/pnas.1714723115 (Sam Allon presented this in a class, he might have slides on it if you ask him!). This <a class="reference external" href="http://hyperparameter.space/blog/a-single-cell-journey-from-mechanistic-to-descriptive-modeling-and-back-again/">blog post</a> gives an interesting description of why people are so fascinated by this problem and why it is so hard.</p>
+<p>In Sarah’s opinion, the main bottleneck for trying out a pseudotime method on your data should not be an exhaustive investigation of all the methods out there to determine which is the best fit for your data. A more fitting filter is which methods are easily available. As Alex always tells us, if the signal is only visible using a very specific pseudotime approach the signal probably isn’t that significant (with the caveat that if some approach has some large modeling difference i.e. expects data from several patients and models that, or expects data from time points, it might be good to look for a method that does that). I think the best way to choose a first pass method is if you can run it in an afternoon. This is true for monocle (which is <a class="reference external" href="http://cole-trapnell-lab.github.io/monocle-release/docs/#constructing-single-cell-trajectories">really well documented!</a>) and for diffusion pseudotime/PHATE (in scanpy).</p>
+<p>Of course it is not completely plug-and-play, you need to read the tutorials and documentations for these methods to use them correctly. It may also be useful to look at papers who have used them in their analysis and see how they describe their approach (which genes and which cells to use them on).</p>
+<p>When Sarah decides to run pseudotime completely blindly (probably not the best option, but it doesn’t really take that much effort so why not?), she starts by running the method on all the cell clusters even if she doesn’t think they are all necessarily involved in the trajectory. The reason for this is to lend more confidence to the clusters I’ve already defined (if some cells in a cluster are participating in a trajectory and some are not I might be suspicious) and also to decide in an unsupervised way which cells are involved in the trajectories (mostly if you don’t know biology).
+Here is diffusion pseudotime on a bunch of clusters.</p>
+<p><img alt="_images/pseudotime_1.png" src="_images/pseudotime_1.png" /></p>
+<p>It is clear that the group off to the right is not involved in the trajectory on the left, so these should be analyzed differently. I removed clusters found mostly in that group.</p>
+<p><img alt="_images/pseudotime_2.png" src="_images/pseudotime_2.png" /></p>
+<p>This gives a slightly nicer picture. I continue removing groups that seem to to not be forming a trajectory (as in a large cluster far away with few cells connecting it to other groups) until I am looking at a nice continuous trajectory.</p>
+<p>You can also be more supervised and just include cells that you think are involved in the trajectory at the start, but if you see artifacts like these in those cells, you might consider further subsetting your group of cells. There are of course other parameters to tune with these methods that are worth looking into!</p>
+<div class="section" id="once-i-have-a-trajectory-what-do-i-do">
+<h2>16.1. Once I have a trajectory what do I do?<a class="headerlink" href="#once-i-have-a-trajectory-what-do-i-do" title="Permalink to this headline">¶</a></h2>
+<p>Once you have an ordering of cells, you can visualize any metadata or celltype clusters you have already figured out along the trajectory by overlaying the label on the points in the dimensionality reduced space or plotting a violin plot with the discrete variable being the metadata or cluster and the continuous variable being the cells’ pseudotime values.</p>
+<p>Some other references describing more legit things to do with pseudotime are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41467-018-04696-6">Uncovering pseudotemporal trajectories with covariates from single cell and bulk expression data</a></p></li>
+<li><p>This seems cool, but I haven’t tried it - <a class="reference external" href="https://github.com/dimenwarper/scimitar">Tracing co-regulatory network dynamics in noisy, single-cell transcriptome trajectories</a></p></li>
+<li><p>Align pseudotime trajectories between batches - https://github.com/shenorrLab/cellAlign</p></li>
+<li><p>If you have timepoints - https://www.biorxiv.org/content/10.1101/622001v1</p></li>
+<li><p>Use it to find a gene regulatory network! - see Gene Networks section of this guide! https://www.biorxiv.org/content/10.1101/534834v1</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="network_inference.html" class="btn btn-neutral float-right" title="17. Network Inference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="differential_expression.html" class="btn btn-neutral float-left" title="15. Differential Expression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Shalek Lab
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
